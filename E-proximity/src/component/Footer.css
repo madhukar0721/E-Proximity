@@ -1,0 +1,73 @@
+.FooterOuter{
+    height:400px;
+    background:#492BA0;
+    width:100%;
+    margin-top:10px;
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .FooterLeftSection{
+    height:300px;
+    width:40%;
+    display:flex;
+    color:whitesmoke;
+    justify-content: space-evenly;
+    margin-top:4rem;
+  }
+  .Quicklink{
+    text-align:left;
+    font-size: .8rem;
+  }
+  .Admission{
+    text-align:left;
+    font-size: .8rem;
+  }
+  .FooterCollegeSection{
+    height:300px;
+    width:35%;
+    margin-top:4rem;
+    background: #492BA0;
+  
+  }
+  .CollegeDetailSection{
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .CollegeName{
+      height:50px;
+      width:60%;
+      margin-top:1.5rem;
+      color:white;
+      font-size: .85rem;
+      font-weight:500;
+  }
+  ul{
+    list-style-type: none;
+  }
+  .Address{
+    font-size:0.75rem;
+    color: white;
+  }
+  .Copyright{
+    width: 100%;
+    height: 50px;
+    color: rgb(255, 250, 250);
+    font-size: 1rem;
+    font-weight: 700;
+    background-color: rgb(56, 54, 54);
+    line-height: 50px;
+  }
+  @media (max-width: 480px) {
+    .FooterOuter {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .FooterLeftSection, .FooterCollegeSection {
+      width: 100%; 
+    }
+  
+    .CollegeName {
+      font-size: 0.65rem;
+    }
+  }
