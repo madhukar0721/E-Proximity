@@ -19,7 +19,7 @@ function Footer(){
                 </div>
                 <div className="Admission">
                     <ul>
-                        <h3>Admissions</h3><br></br>
+                        <h3>Admission</h3><br></br>
                         <li>Admission Open</li>
                         <li>Fee Structure</li>
                         <li>Registration Form</li>
@@ -29,11 +29,8 @@ function Footer(){
               </div>  
               <div className="FooterCollegeSection">
                   <div className="CollegeDetailSection">
-                    <div><img src={logo} height="80px" width="80px;"/></div>
+                    <div><img src={logo} height="80px" width="800px;"/></div>
                     <div className="CollegeName">Dr. Ambedkar Institute of Technology For Handicapped, Kanpur</div>                  
-                  </div>
-                  <div className="Address">
-                    
                   </div>
                   <div>
                     <div className="social-icons">

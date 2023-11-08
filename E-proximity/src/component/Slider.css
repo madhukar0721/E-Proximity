@@ -1,16 +1,17 @@
-/* $dap-tw-height: 38px;
-$dap-tw-accent: teal;
-$dap-tw-divider: #fff;
-$dap-tw-bg: #eee; */
 :root {
     --color: #ffffff;
     --background: #9d9e9f;
   }
+
 .SliderOpacity{
     background: black;
-}
-img{
-    opacity:0.7;
+    height: 400px;
+    width: 100%;
+    background-size: cover; 
+    object-fit: cover;
+    box-sizing: border-box;
+    opacity: 0.8;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.427),rgba(0, 0, 0, 0.7)) , url('../Images/college.jpeg');
 }
 .sliderCaption{
     font-size: 1.1rem;
@@ -74,4 +75,9 @@ img{
     margin-left: 30px;
     margin-right: 30px;
     border-radius: 2px;
+}
+@media (max-width:450px) {
+    .SliderOpacity{
+        height: 350px;
+    }
 }

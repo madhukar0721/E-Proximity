@@ -2,6 +2,8 @@ import React,{Component} from "react";
 import './Navigation.css';
 import {Navbar,Container,Nav,NavDropdown,Form,FormControl,Button} from 'react-bootstrap';
 import aithlogo from '../Images/aithlogo.png';
+import location from '../Images/location.png';
+import { Link } from 'react-router-dom';
 export default class Navigation extends Component{
   render(){
     return(
@@ -16,9 +18,9 @@ export default class Navigation extends Component{
               style={{ maxHeight: '100px' }}
               navbarScroll>
               <NavDropdown title="Login" id="navbarScrollingDropdown">
-                <NavDropdown.Item href="#action3" >Student</NavDropdown.Item>
-                <NavDropdown.Item href="#action4">Faculty</NavDropdown.Item>
-                <NavDropdown.Item href="#action4">Admin</NavDropdown.Item>
+                <NavDropdown.Item href="student-auth" >Student</NavDropdown.Item>
+                <NavDropdown.Item href="faculty-auth">Faculty</NavDropdown.Item>
+                <NavDropdown.Item href="admin-auth">Admin</NavDropdown.Item>
               </NavDropdown>
               <Nav.Link href="#action1">Home</Nav.Link>
               <Nav.Link href="#action2">About</Nav.Link>
@@ -40,12 +42,12 @@ export default class Navigation extends Component{
     </Navbar>
     <div className="lower-header">
       <div className="collegetitle">
-            <div className="eproximity-logo"><img src={aithlogo} width="75px"/></div>
+            <div className="eproximity-logo"><img src={aithlogo} height="60px" width="395px"/></div>
             <div className="title">Dr. Ambedkar Institute Of Technology For Handicapped, Kanpur</div>
       </div>
       <div className="addresstitle">
-            <div className="address">Awadhpuri , Khyora <br></br>Near Rama Dental College , Kanpur</div>
-            <div className="location-icon"><img src={aithlogo} width="35px"/></div>
+            <div className="address">Awadhpuri , Khyora <br></br>Near Rama Dental College , Kanpur</div>&nbsp;&nbsp;
+            <div className="location-icon"><img src={location} height="40px" width="75px"/></div>
       </div>
     </div>
       </div>

@@ -8,17 +8,17 @@ function Slider(){
     <Carousel>
       <Carousel.Item>
         <div className="SliderOpacity">
-        <img src={ExampleCarouselImage}  height="400px" width="100%"/>
+        <img/>
         <Carousel.Caption>
                <h2 className='sliderCaption'>Welcome To E-Proximity
-               <p className='sliderLowerCaption'>The Largeest E-portal for College Management</p>
+               <p className='sliderLowerCaption'>The Largest E-portal for College Management</p>
                </h2>    
         </Carousel.Caption>
         </div>
       </Carousel.Item>
       <Carousel.Item>
       <div className="SliderOpacity">
-        <img src={ExampleCarouselImage}  height="400px" width="100%"/>
+        <img />
         <Carousel.Caption>
             <h2 className='sliderCaption'>Welcome To E-Proximity
                <p className='sliderLowerCaption'>The Largest E-portal for College Management</p>
@@ -28,7 +28,7 @@ function Slider(){
       </Carousel.Item>
       <Carousel.Item>
       <div className="SliderOpacity">
-        <img src={ExampleCarouselImage} height="400px" width="100%"/>
+        <img/>
         <Carousel.Caption>
             <h2 className='sliderCaption'>Welcome To E-Proximity
                <p className='sliderLowerCaption'>The Largeest E-portal for College Management</p>

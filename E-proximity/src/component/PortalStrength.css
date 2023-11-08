@@ -1,5 +1,5 @@
 .portalstrengthOuter{
-    height:200px;
+    height:230px;
     width:100%;
     box-sizing: border-box;
     opacity: 0.8;
@@ -13,13 +13,14 @@
 } 
  .student div{
     background-color: red;
-    height: 140px;
-    width: 180px;
-    margin-top: 30px;
+    height: 10rem;
+    width: 10rem;
+    margin-top: 3rem;
     background-color: rgba(154, 147, 147, 0.5);
     color: #f5ebeb;
     border-radius: 5px;
-    padding-top: 30px;
+    padding-top: 20px;
+    text-align: center;
 }
 @media (max-width: 768px) {
     .student div {
