@@ -2,7 +2,7 @@ import './Studentlogin.css';
 import aithlogo from '../Images/aithlogo.png';
 import bg from '../Images/bg.jpg';
 import { useState } from 'react';
-function Studentlogin(){
+function Studentlogin(props){
   const[userid,setuserid]=useState("");
   const[password,setpassword]=useState("");
   const handleSubmit=(e)=>{
@@ -14,7 +14,7 @@ function Studentlogin(){
     return<>
       <div className='container'>
         <img src={aithlogo} alt='logo'/>
-        <h4>Student Login</h4>
+        <h4>{props.name} Login</h4>
         <form onSubmit={(e)=>e.handleSubmit(e)}>
           <div className='InputContainer'>
              <p>User Id</p>

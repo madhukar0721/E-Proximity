@@ -9,9 +9,8 @@ import Footer from './component/Footer';
 import Slider from './component/Slider';
 import Navigation from './component/Navigation';
 import { BrowserRouter,  Routes, Route  } from 'react-router-dom';
-import Studentlogin from './component/Studentlogin';
-import Facultylogin from './component/Facultylogin';
-import Adminlogin from './component/Adminlogin';
+import Login from './component/Login'
+import Facultylogin from './component/Facultylogin'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -36,9 +35,11 @@ function App() {
        <PortalStrength></PortalStrength>
        <Footer></Footer>
        </Outer> </>} />
-       <Route exact path ="/student-auth" element={<><Studentlogin/> </>} />
-       <Route exact path ="/faculty-auth" element={<><Facultylogin/> </>} />
-       <Route exact path ="/admin-auth" element={<><Adminlogin/> </>} />
+       <Route exact path ="/student-auth" element={<><Login name='Student'/> </>} />
+       <Route exact path ="/faculty-auth" element={<><Login name="Faculty"/> </>} />
+       <Route exact path ="/admin-auth" element={<><Login name="Admin"/> </>} />
+
+
     </Routes>
     </BrowserRouter></>
   )
