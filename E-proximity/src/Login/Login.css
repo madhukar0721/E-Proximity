@@ -122,6 +122,9 @@ button:active{
     color: #492BA0;
     font-weight: 400;
 }
+a{
+    text-decoration: none;
+}
 @media (max-width:600px) {
     .logout{
         margin: auto;

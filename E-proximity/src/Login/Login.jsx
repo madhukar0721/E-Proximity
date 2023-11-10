@@ -12,12 +12,12 @@ function Login(props){
     alert(email+password);
   };
     return<>
-    <nav className="logout">
-      <a href='/' className='lg text-reset'>
-       Go To Dashboard &nbsp;
-      <MDBIcon fas icon="arrow-circle-right" />
+        <nav className="logout">
+          <a href='/' className='lg text-reset'>
+            Go To Dashboard &nbsp;
+            <MDBIcon fas icon="arrow-circle-right" />
           </a>
-      </nav>
+        </nav>
       <div className='container'>
         <img src={aithlogo} alt='logo'/>
         <h4>{props.name} Login</h4>
