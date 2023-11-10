@@ -20,10 +20,10 @@ function Noticeboard(){
                 <div className="events-title">Events</div>
                  <div className="Events">
                    <ul className="Newslist">
-                        <li>Registration</li>
-                        <li>Admission 2023-2024</li>
-                        <li>View Your Calender</li>
-                        <li>Fee structure</li>
+                        <li>Sankhnaad</li>
+                        <li>Aveg</li>
+                        <li>Placement Drives</li>
+                        <li>Induction</li>
                     </ul>
                     <button className='BtnNoticeBoard'>View all</button>
                  </div>
