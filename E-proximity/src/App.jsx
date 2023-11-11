@@ -11,6 +11,7 @@ import Navigation from './component/Navigation';
 import { BrowserRouter,  Routes, Route  } from 'react-router-dom';
 import Login from './component/Login'
 import Facultylogin from './component/Facultylogin'
+import Dashboard from '../Student/Dashboard';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -38,6 +39,7 @@ function App() {
        <Route exact path ="/student-auth" element={<><Login name='Student'/> </>} />
        <Route exact path ="/faculty-auth" element={<><Login name="Faculty"/> </>} />
        <Route exact path ="/admin-auth" element={<><Login name="Admin"/> </>} />
+       <Route exact path ="/student_dashboard" element={<><Dashboard/> </>} />
 
 
     </Routes>
