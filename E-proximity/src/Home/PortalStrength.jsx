@@ -7,9 +7,9 @@ function PortalStrength(){
     return(
         <div className="portalstrengthOuter">
             <div className="student">
-                <div><img src={student} height="50px" width="50px"></img><p><b>1600+</b><br></br>Student</p></div>
-                <div><img src={Staff} height="50px" width="50px"></img><p><b>1700+</b><br></br>Staff</p></div>
-                <div><img src={faculty} height="50px" width="50px"></img><p><b>1000+</b><br></br>Faculty</p></div>
+                <div><img src={student} className='portalstrengthimg'></img><p><b>1600+</b><br></br>Student</p></div>
+                <div><img src={Staff}  className='portalstrengthimg'></img><p><b>1700+</b><br></br>Staff</p></div>
+                <div><img src={faculty} className='portalstrengthimg'></img><p><b>1000+</b><br></br>Faculty</p></div>
             </div>
         </div>
     );

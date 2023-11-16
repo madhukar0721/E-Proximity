@@ -1,5 +1,4 @@
 import './Container.css';
-
 function Outer(props){
     return(
         <div className="outer">

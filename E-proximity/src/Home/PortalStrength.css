@@ -1,11 +1,14 @@
 .portalstrengthOuter{
-    height:230px;
+    min-height:230px;
     width:100%;
     box-sizing: border-box;
-    opacity: 0.8;
     background-image: linear-gradient(rgba(0, 0, 0, 0.627),rgba(0, 0, 0, 0.7)) , url(../Images/HumanResourceStrength.jpeg);
     background-size:cover;
 }
+img{
+    opacity: 0.7;
+}
+p{margin-top: 0.7rem;}
 .student{
     display: flex;
     justify-content: space-evenly;
@@ -19,11 +22,25 @@
     background-color: rgba(154, 147, 147, 0.5);
     color: #f5ebeb;
     border-radius: 5px;
-    padding-top: 20px;
+    padding: 1rem;
     text-align: center;
 }
-@media (max-width: 768px) {
+.portalstrengthimg{
+    height: auto;
+    width: 100%;
+    max-width: 50px;
+}
+@media (max-width: 900px) {
     .student div {
-        max-width: 100px;
+        width: 80%;
+        margin: auto;
+        margin-top: 2rem;
+    }
+    .student{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
     }
 }

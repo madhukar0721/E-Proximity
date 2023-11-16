@@ -8,25 +8,36 @@
     display: flex;
     justify-content: space-between;
 }
+.collegelogo{
+    height: auto;
+    width: 100%;
+    max-width: 100px;
+}
 .collegetitle{
     width: 400px;
     display: flex;
     margin: 1rem;
+    gap: 1rem;
 
 }
 .addresstitle{
     width: 285px;
     min-height:80px;
     display: flex;
-    margin: 10px;
+    margin-top: 2rem;
+}
+.locationlogo{
+    width: 100%;
+    height: auto;
+    max-width: 20px;
 }
 .title{
     font-size:.6rem;
-    font-weight: 550;
+    font-weight: 500;
     margin-top: 10px;
     word-spacing: 2px;
-    color: rgb(52, 51, 51);
-    margin-left:.2rem;
+    color: rgb(102, 99, 99);
+    margin-left:0.2rem;
 }
 .address{
     font-size:.5rem;
