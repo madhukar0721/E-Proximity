@@ -10,6 +10,9 @@ import Slider from './Home/Slider';
 import Navigation from './Home/Navigation';
 import { BrowserRouter,  Routes, Route  } from 'react-router-dom';
 import Login from './Login/Login'
+import Faculty from './Faculty/FacultyDashBoard'
+import Student from './student2/StudentDashBoard'
+import Attendance from './Faculty/Attendance'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -27,6 +30,9 @@ function App() {
        <Route exact path ="/student-auth" element={<><Login name='Student'/> </>} />
        <Route exact path ="/faculty-auth" element={<><Login name="Faculty"/> </>} />
        <Route exact path ="/admin-auth" element={<><Login name="Admin"/> </>} />
+       <Route exact path ="/faculty" element={<><Faculty /> </>} />
+       <Route exact path ="/student" element={<><Student /> </>} />
+       <Route exact path ="/attendence" element={<><Attendance /> </>} />
       </Routes>
     </BrowserRouter></>
   )
