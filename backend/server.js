@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // MongoDB connection
-mongoose.connect('mongodb+srv://eproximity:eproximity@backend.gomwdi5.mongodb.net/', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb+srv://madhukar:madhukar@aith.iebemsz.mongodb.net/', { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;
 
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
@@ -98,6 +98,41 @@ app.post('/register', async (req, res) => {
     console.error('Registration failed:', error.message);
     res.status(500).json({ error: 'Registration failed' });
   }
+});
+app.post('/login', async (req, res) => {
+  try {
+    const { username, password } = req.body;
+
+    // Find the user by username
+    const user = await User.findOne({ username });
+
+    if (!user) {
+      return res.status(401).json({ error: 'Invalid credentials' });
+    }
+
+    // Compare the provided password with the hashed password in the database
+    const isPasswordValid = await bcrypt.compare(password, user.password);
+
+    if (!isPasswordValid) {
+      return res.status(401).json({ error: 'Invalid credentials' });
+    }
+
+    // If authentication is successful, generate and return a JWT token
+    const accessToken = jwt.sign({ id: user._id, username: user.username, role: user.role }, secretKey);
+    res.json({ accessToken });
+  } catch (error) {
+    console.error('Login failed:', error.message);
+    res.status(500).json({ error: 'Login failed' });
+  }
+});
+app.get('/user-data', authenticateToken, (req, res) => {
+  // Fetch user data from the database or other data source
+  // In this example, we'll send back dummy data
+  const userData = {
+    username: req.user.username,
+    role: req.user.role,
+  };
+  res.json(userData);
 });
 
 // ... (remaining code)

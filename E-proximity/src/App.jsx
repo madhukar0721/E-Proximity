@@ -9,9 +9,10 @@ import Footer from './Home/Footer';
 import Slider from './Home/Slider';
 import Navigation from './Home/Navigation';
 import { BrowserRouter,  Routes, Route  } from 'react-router-dom';
-import Login from './Login/Login'
+import Login from './admin-backend/login';
 import Faculty from './Faculty/FacultyDashBoard'
 import Student from './student2/StudentDashBoard'
+import Apps from './admin-backend/apps';
 import Register from './admin-backend/register';
 
 function App() {
@@ -33,7 +34,7 @@ function App() {
        <Route exact path ="/admin-auth" element={<><Login name="Admin"/> </>} />
        <Route exact path ="/faculty" element={<><Faculty /> </>} />
        <Route exact path ="/student" element={<><Student /> </>} />
-       <Route exact path ="/register" element={<><Register  /> </>} />
+       <Route exact path ="/register" element={<><Apps /> </>} />
        
       </Routes>
     </BrowserRouter></>
