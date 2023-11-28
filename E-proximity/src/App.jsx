@@ -12,10 +12,11 @@ import { BrowserRouter,  Routes, Route  } from 'react-router-dom';
 import Login from './Login/Login'
 import Faculty from './Faculty/FacultyDashBoard'
 import Student from './student2/StudentDashBoard'
-import Attendance from './Faculty/Attendance'
+import Register from './admin-backend/register';
 
 function App() {
   const [count, setCount] = useState(0)
+  const [token, setToken] = useState(null);
   return (
     <>  <BrowserRouter>
     <Routes>
@@ -32,7 +33,8 @@ function App() {
        <Route exact path ="/admin-auth" element={<><Login name="Admin"/> </>} />
        <Route exact path ="/faculty" element={<><Faculty /> </>} />
        <Route exact path ="/student" element={<><Student /> </>} />
-       <Route exact path ="/attendence" element={<><Attendance /> </>} />
+       <Route exact path ="/register" element={<><Register  /> </>} />
+       
       </Routes>
     </BrowserRouter></>
   )
