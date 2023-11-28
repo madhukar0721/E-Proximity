@@ -12,7 +12,7 @@ const Register = ({ setToken }) => {
   const handleRegister = async () => {
     try {
       if (password !== confirmPassword) {
-        console.error('Passwords do not match');
+       alert("PASSWORD NOT MATCH");
         return;
       }
 
