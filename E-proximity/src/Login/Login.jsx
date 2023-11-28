@@ -37,8 +37,8 @@ function Login(props){
           <div className='Bottomform'>
             <button type='submit'>Login</button>
             <div className='Links'>
-              <p>New Users?</p>
-              <p>Forgot Password?</p>
+              <p>New Users want to register?</p>
+              <p>Forgot password?</p>
             </div>
           </div>
         </form>
