@@ -23,6 +23,7 @@ const Register = ({ setToken }) => {
         role,
       });
 
+      alert("success");
       const { accessToken } = response.data;
       setToken(accessToken);
     } catch (error) {

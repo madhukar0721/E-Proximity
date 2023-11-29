@@ -4,6 +4,7 @@ import Dashboard from './dashboard';
 import Login from './login';
 import Register from './register';
 import Login2 from './login2';
+import Student from '../student2/StudentDashBoard'
 
 const App = () => {
   const [token, setToken] = useState(null);
@@ -31,7 +32,7 @@ const App = () => {
   return (
     <div>
       {token ? (
-        < token={token} onLogout={handleLogout} />
+        <Student token={token} onLogout={handleLogout} />
       ) : (
         <div>
           <Login setToken={handleLogin} />
