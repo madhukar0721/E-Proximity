@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   CDBSidebar,
   CDBSidebarContent,
@@ -11,10 +11,54 @@ import { NavLink } from 'react-router-dom';
 import img from '../Images/student.png';
 import './studentDashBoard.css';
 import timetable from './TIMETABLE.json'
-function Sidebar(){
+const Sidebar=({token,onLogout})=>{
   const d=new Date();
   const t=d.toLocaleTimeString(navigator.language, {hour: '2-digit', minute:'2-digit'})
+
+// session
+
+
+const [userData, setUserData] = useState(null);
+
+useEffect(() => {
+  const fetchUserData = async () => {
+    try {
+      const response = await axios.get('http://localhost:3000/user-data', {
+        headers: {
+          Authorization: token,
+        },
+      });
+
+      setUserData(response.data);
+    } catch (error) {
+      console.error('Failed to fetch user data:', error.message);
+      onLogout(); // Log the user out if there's an error fetching data
+    }
+  };
+
+  fetchUserData();
+}, [token, onLogout]);
+
+useEffect(() => {
+  const sessionTimer = setTimeout(() => {
+    onLogout(); // Log the user out when the session expires
+  }, 60 * 1000); // 24 hours in milliseconds
+
+  return () => clearTimeout(sessionTimer);
+}, [onLogout]);
+
+const handleLogout = () => {
+  onLogout(); // Log the user out manually
+};
+
+
+// frontend
+
+
+
   return(
+    <div>
+    {userData && userData.role === 'student' ? (
     <div style={{display:'flex', height: '100vh', overflow: 'scroll initial' }}>
       {/* ----------------SideBar----------------*/}
       <div className='sideBarContainer'>
@@ -101,6 +145,9 @@ function Sidebar(){
     </div>
           </div>
       </div>
+
+    </div>) : (
+      <p>You do not have access to the dashboard.</p>)}
     </div>
   );
 };
