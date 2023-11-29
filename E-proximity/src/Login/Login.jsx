@@ -2,7 +2,6 @@ import './Login.css'
 import aithlogo from '../Images/aithlogo.png';
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import {MDBIcon} from 'mdb-react-ui-kit';
-import bg from '../Images/bg.jpg';
 import { useState } from 'react';
 function Login(props){
   const[userid,setuserid]=useState("");
@@ -11,13 +10,13 @@ function Login(props){
     e.preventDefault();
     alert(email+password);
   };
-    return<>
-        <nav className="logout">
-          <a href='/' className='lg text-reset'>
-            Go To Dashboard &nbsp;
-            <MDBIcon fas icon="arrow-circle-right" />
-          </a>
-        </nav>
+    return<div className='LoginOuter'>
+      <nav className="logout">
+        <a href='/' className='lg text-reset'>
+          Go To Dashboard &nbsp;
+          <MDBIcon fas icon="arrow-circle-right" />
+        </a>
+      </nav>
       <div className='container'>
         <img src={aithlogo} alt='logo'/>
         <h4>{props.name} Login</h4>
@@ -44,6 +43,6 @@ function Login(props){
         </form>
         <small className='copyright'> &copy; 2023 E-Proximity Reserved</small>
         </div>
-      </>
+      </div>
 }
 export default Login;

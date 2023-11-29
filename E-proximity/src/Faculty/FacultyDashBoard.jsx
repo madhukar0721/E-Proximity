@@ -8,10 +8,11 @@ import {
   CDBSidebarMenuItem,
 } from 'cdbreact';
 import { NavLink } from 'react-router-dom';
-import img from '../Images/director.jpg';
+import img from '../Images/mam.jpg';
 import './FacultyDashBoard.css';
 function Sidebar(){
   return(
+    <>
     <div style={{display:'flex', height: '100vh', overflow: 'scroll initial' }}>
       {/* ----------------SideBar----------------*/}
       <div className='sideBarContainer'>
@@ -58,72 +59,72 @@ function Sidebar(){
         </CDBSidebarFooter>
       </CDBSidebar>
       </div>
+     <div className='FacultyRightSection'>
+     {/* ------------UpperMenu--------------- */}
+       <div className='menu'>
+           <div className='DashBoardprofile'>
+             <div className='DashBoardProfileImageOuter'>
+                   <img src={img} className='DashBoardProfileImage'/>
+             </div>
+           </div>
+       </div>
 
-      <div className='FacultyRightSection'>
-        {/* ------------UpperMenu--------------- */}
-          <div className='menu'>
-              <div className='DashBoardprofile'>
-                <div className='DashBoardProfileImageOuter'>
-                      <img src={img} className='DashBoardProfileImage'/>
-                </div>
-              </div>
-          </div>
-
-          {/* ----------------DashBoardContent Part------------------ */}
-          <div className='FacultyDashBoardContent'>
-               <h3>Today's Schedule</h3>
-               <div className='ScheduleChartOuter'>
-                  <table>
-                    <tr>
-                      <th>Time</th>
-                      <th>Lecture</th>
-                      <th>Year</th>
-                    </tr>
-                    <tr>
-                      <td>10AM TO 11AM</td>
-                      <td>COA(Room-F203)</td>
-                      <td>2nd Year</td>
-                    </tr>
-                    <tr>
-                      <td>10AM TO 11AM</td>
-                      <td>COA(Room-F203)</td>
-                      <td>2nd Year</td>
-                    </tr> 
-                    <tr>
-                      <td>10AM TO 11AM</td>
-                      <td>COA(Room-F203)</td>
-                      <td>2nd Year</td>
-                    </tr>
-                    <tr>
-                      <td>10AM TO 11AM</td>
-                      <td>COA(Room-F203)</td>
-                      <td>2nd Year</td>
-                    </tr>
-                    <tr>
-                      <td>10AM TO 11AM</td>
-                      <td>COA(Room-F203)</td>
-                      <td>2nd Year</td>
-                    </tr>
-                    <tr>
-                      <td>10AM TO 11AM</td>
-                      <td>COA(Room-F203)</td>
-                      <td>2nd Year</td>
-                    </tr>
-                    <tr>
-                      <td>10AM TO 11AM</td>
-                      <td>COA(Room-F203)</td>
-                      <td>2nd Year</td>
-                    </tr> 
-                    <tr>
-                      <td>10AM TO 11AM</td>
-                      <td>COA(Room-F203)</td>
-                      <td>2nd Year</td>
-                    </tr>
-                  </table>
-               </div>
-          </div>
-      </div>
-    </div>
+       {/* ----------------DashBoardContent Part------------------ */}
+       <div className='FacultyDashBoardContent'>
+            <h3>Today's Schedule</h3>
+            <div className='ScheduleChartOuter'>
+               <table>
+                 <tr>
+                   <th>Time</th>
+                   <th>Lecture</th>
+                   <th>Year</th>
+                 </tr>
+                 <tr>
+                   <td>10AM TO 11AM</td>
+                   <td>COA(Room-F203)</td>
+                   <td>2nd Year</td>
+                 </tr>
+                 <tr>
+                   <td>10AM TO 11AM</td>
+                   <td>COA(Room-F203)</td>
+                   <td>2nd Year</td>
+                 </tr> 
+                 <tr>
+                   <td>10AM TO 11AM</td>
+                   <td>COA(Room-F203)</td>
+                   <td>2nd Year</td>
+                 </tr>
+                 <tr>
+                   <td>10AM TO 11AM</td>
+                   <td>COA(Room-F203)</td>
+                   <td>2nd Year</td>
+                 </tr>
+                 <tr>
+                   <td>10AM TO 11AM</td>
+                   <td>COA(Room-F203)</td>
+                   <td>2nd Year</td>
+                 </tr>
+                 <tr>
+                   <td>10AM TO 11AM</td>
+                   <td>COA(Room-F203)</td>
+                   <td>2nd Year</td>
+                 </tr>
+                 <tr>
+                   <td>10AM TO 11AM</td>
+                   <td>COA(Room-F203)</td>
+                   <td>2nd Year</td>
+                 </tr> 
+                 <tr>
+                   <td>10AM TO 11AM</td>
+                   <td>COA(Room-F203)</td>
+                   <td>2nd Year</td>
+                 </tr>
+               </table>
+            </div>
+       </div>
+   </div>
+   </div>
+   </>
   );
 };
 
