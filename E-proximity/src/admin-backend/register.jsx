@@ -1,6 +1,7 @@
 // src/Register.js
 import React, { useState } from 'react';
 import axios from 'axios';
+import './register.css'
 
 const Register = ({ setToken }) => {
   const [name, setName] = useState('');
@@ -32,33 +33,33 @@ const Register = ({ setToken }) => {
   };
 
   return (
-    <div>
+    <div className='container'>
       <h2>Register</h2>
       <div>
         <label>Name:</label>
-        <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
+        <input className='form-control' type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder='Enter Name'/>
       </div>
       <div>
         <label>Username:</label>
-        <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
+        <input className=' form-control' type="text" value={username} onChange={(e) => setUsername(e.target.value)} placeholder='Enter UserName'/>
       </div>
       <div>
         <label>Password:</label>
-        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+        <input className=' form-control' type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder='Password' />
       </div>
       <div>
         <label>Confirm Password:</label>
-        <input type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
+        <input className=' form-control' type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} placeholder='Confirm Password'/>
       </div>
       <div>
         <label>Role:</label>
-        <select value={role} onChange={(e) => setRole(e.target.value)}>
+        <select className=' form-control' value={role} onChange={(e) => setRole(e.target.value)}>
           <option value="admin">Admin</option>
           <option value="faculty">Faculty</option>
           <option value="student">Student</option>
         </select>
       </div>
-      <button onClick={handleRegister}>Register</button>
+      <button  onClick={handleRegister}>Register</button>
     </div>
   );
 };

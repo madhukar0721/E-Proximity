@@ -8,11 +8,10 @@ import {
   CDBSidebarMenuItem,
 } from 'cdbreact';
 import { NavLink } from 'react-router-dom';
-<<<<<<< HEAD
+
 import img from '../Images/mam.jpg';
-=======
-import img from '../Images/student.png';
->>>>>>> main
+
+import img1 from '../Images/student.png';
 import './FacultyDashBoard.css';
 function Sidebar(){
   return(
@@ -68,7 +67,7 @@ function Sidebar(){
        <div className='menu'>
            <div className='DashBoardprofile'>
              <div className='DashBoardProfileImageOuter'>
-                   <img src={img} className='DashBoardProfileImage'/>
+                   <img src={img1} className='DashBoardProfileImage'/>
              </div>
            </div>
        </div>

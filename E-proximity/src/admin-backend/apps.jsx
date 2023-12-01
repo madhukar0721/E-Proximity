@@ -1,10 +1,10 @@
 // src/App.js
 import React, { useState, useEffect } from 'react';
 import Dashboard from './dashboard';
-import Login from './login';
+import Login from '../Login/Login';
 import Register from './register';
 import Login2 from './login2';
-import Student from '../student2/StudentDashBoard'
+import Student from '../Student/StudentDashboard'
 
 const App = () => {
   const [token, setToken] = useState(null);
@@ -35,7 +35,7 @@ const App = () => {
         <Student token={token} onLogout={handleLogout} />
       ) : (
         <div>
-          <Login setToken={handleLogin} />
+          <Login setToken={handleLogin} name="Student"/>
         </div>
       )}
     </div>

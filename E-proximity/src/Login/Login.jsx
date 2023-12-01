@@ -3,18 +3,8 @@ import React, { useState } from 'react';
 import aithlogo from '../Images/aithlogo.png';
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import {MDBIcon} from 'mdb-react-ui-kit';
-<<<<<<< HEAD
-import { useState } from 'react';
-function Login(props){
-  const[userid,setuserid]=useState("");
-  const[password,setpassword]=useState("");
-  const handleSubmit=(e)=>{
-    e.preventDefault();
-    alert(email+password);
-=======
-import bg from '../Images/bg.jpg';
 import axios from 'axios';
-const Login=({setToken})=>{
+const Login=(props)=>{
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const handleLogin = async () => {
@@ -25,13 +15,13 @@ const Login=({setToken})=>{
       });
 
       const { accessToken } = response.data;
-      setToken(accessToken);
+     props.setToken(accessToken);
     } catch (error) {
       console.error('Login failed:', error.message);
     }
->>>>>>> main
+
   };
-    return<div className='LoginOuter'>
+    return(<div className='LoginOuter'>
       <nav className="logout">
         <a href='/' className='lg text-reset'>
           Go To Dashboard &nbsp;
@@ -40,8 +30,8 @@ const Login=({setToken})=>{
       </nav>
       <div className='container'>
         <img src={aithlogo} alt='logo'/>
-        <h4>Student Login</h4>
-        <form >
+        <h4>{props.name} Login</h4>
+        <div>
           <div className='InputContainer'>
              <p>User Id</p>
              <input value={username} id="username" name="username" autoComplete="username"
@@ -55,14 +45,14 @@ const Login=({setToken})=>{
             type='password'/>
           </div>
           <div className='Bottomform'>
-            <button type='submit' onClick={handleLogin} >Login</button>
+            <button onClick={handleLogin} >Login</button>
             <div className='Links'>
               <p>Forgot password?</p>
             </div>
           </div>
-        </form>
+          </div>
         <small className='copyright'> &copy; 2023 E-Proximity Reserved</small>
         </div>
-      </div>
+      </div>)
 }
 export default Login;

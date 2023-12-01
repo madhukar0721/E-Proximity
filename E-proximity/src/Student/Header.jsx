@@ -3,7 +3,7 @@ import './All.css'
 import 
  {BsFillBellFill, BsFillEnvelopeFill, BsPersonCircle, BsSearch, BsJustify}
  from 'react-icons/bs'
-import menuProfileImage from '../src/Images/mam.jpg';
+import menuProfileImage from '../Images/mam.jpg';
 function Header({OpenSidebar}) {
   return (
     <header className='header'>
