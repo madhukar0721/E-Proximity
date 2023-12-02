@@ -9,7 +9,8 @@ import Footer from './Home/Footer';
 import Slider from './Home/Slider';
 import Navigation from './Home/Navigation';
 import { BrowserRouter,  Routes, Route  } from 'react-router-dom';
-import Login from './Login/login';
+import FeeDetail from './Student/FeeDetails';
+import Login from './Login/Login';
 import Faculty from './Faculty/FacultyDashBoard'
 import Student from './student2/StudentDashBoard'
 import Apps from './admin-backend/apps';
@@ -39,9 +40,9 @@ function App() {
     localStorage.removeItem('token');
   };
   return (
-    <>  <BrowserRouter>
+    <><BrowserRouter>
     <Routes>
-      <Route exact path ="/" element={<>  <Outer>
+      <Route exact path ="/" element={<><Outer>
         <Navigation></Navigation>
         <Slider></Slider>
        <Noticeboard></Noticeboard>
@@ -49,6 +50,13 @@ function App() {
        <PortalStrength></PortalStrength>
        <Footer></Footer>
        </Outer> </>} />
+       <Route exact path ="/student-auth" element={<><Apps name='Student'/> </>} />
+       <Route exact path ="/faculty-auth" element={<><Login name="Faculty"/> </>} />
+       <Route exact path ="/admin-auth" element={<><Login name="Admin"/> </>} />
+       <Route exact path='/faculty' element={<><Faculty/></>}/>
+       <Route exact path="/studentdash" element={<><Student/></>}/>
+       <Route exact path='/feedetails' element={<><FeeDetail/></>}/>
+       
        <Route exact path ="studnet-auth" element={<>    <div>
       {token ? (
         <Student token={token} onLogout={handleLogout} />
@@ -68,7 +76,7 @@ function App() {
        
       </Routes>
     </BrowserRouter></>
-  )
-}
+  );
+};
 
-export default App
+export default App;
