@@ -1,3 +1,6 @@
+const dotenv = require("dotenv");
+dotenv.config({ path: './config.env' });
+
 const express = require('express');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
@@ -8,7 +11,6 @@ const User = require('../models/userModel');
 const authenticate = require('../middleware/authMiddleware');
 const checkRole = require('../middleware/checkRole');
 
-require('dotenv').config();
 const router = express.Router();
 
 const ACCESS_TOKEN_SECRET = process.env.ACCESS_TOKEN_SECRET;
@@ -38,7 +40,7 @@ router.post('/register', async (req, res) => {
         // Insert the user into the 'users' collection
         const newUser = new User(user).save();
 
-        res.status(200).json({
+        return res.status(200).json({
             message: `Invite Code = ${inviteCode}`,
 
         });
@@ -97,7 +99,7 @@ router.post('/login', async (req, res) => {
 
 });
 
-router.post('/student-dashboard', checkRole, authenticate, async (req, res) => {
+router.post('/student-dashboard', authenticate, async (req, res) => {
 
     res.status(200).json("hi");
 
