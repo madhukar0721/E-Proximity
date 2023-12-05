@@ -8,6 +8,7 @@ const bodyParser = require("body-parser");
 
 const role=require('./router/role')
 const authRoutes = require('./router/authRoutes');
+const adminRoutes = require('./router/adminRoutes');
 const DB = require('./DB/conn')
 const { verifyAndRefreshToken } = require('./middleware/authMiddleware');
 
@@ -31,7 +32,8 @@ app.get('/', (req, res) => {
     res.status(200).send(JSON.stringify(status));
  });
 
- app.use('/auth',authRoutes)
+ app.use('/auth',authRoutes);
+ app.use('/admin',adminRoutes);
 
 
 

@@ -14,35 +14,40 @@ const checkRole = require('../middleware/checkRole');
 const router = express.Router();
 
 const ACCESS_TOKEN_SECRET = process.env.ACCESS_TOKEN_SECRET;
+const REFRESH_TOKEN_SECRET = process.env.REFRESH_TOKEN_SECRET;
+const ALPHA_NUMERIC_SET = process.env.ALPHA_NUMERIC_SET
+const generateRefreshToken = () => jwt.sign({}, REFRESH_TOKEN_SECRET, { expiresIn: '7d' });
 
 
 router.post('/register', async (req, res) => {
-    const { name, email, role } = req.body;
+    const { name, email, password, organizationId } = req.body;
 
 
     try {
-        
+
         const existingUser = await User.findOne({ email });
         if (existingUser) {
             return res.status(400).json({ message: 'email already exists' });
         }
 
-        const inviteCode = speakeasy.generateSecret({ length: 6 }).base32;
-        
+        const hashedPassword = await bcrypt.hash(password, 10);
+
         // Create a new user
 
         const user = {
             name: name,
             email: email,
-            role: role,
-            inviteCode: inviteCode
+            password: hashedPassword,
+            organizationId: organizationId,
+            role: 'admin'
         }
         // Insert the user into the 'users' collection
         const newUser = new User(user).save();
 
         return res.status(200).json({
-            message: `Invite Code = ${inviteCode}`,
-
+            message: `User signed up, organization created.`,
+            name: name,
+            email: email
         });
     } catch (err) {
         console.error('Error signing up, creating organization, and generating 2FA secret:', err);
@@ -52,50 +57,91 @@ router.post('/register', async (req, res) => {
 
 
 
-router.post('/signup-newuser/:inviteCode', async (req, res) => {
+router.post('/login', async (req, res) => {
+    const { email, password, role } = req.body;
+
+    try {
+        const user = await User.findOne({ email }).maxTimeMS(5000);
+
+        if (!user || !(await bcrypt.compare(password, user.password))) {
+            return res.status(401).json({ message: 'Invalid username or password' });
+        }
+        if (user.role !== role) {
+            return res.status(401).json({ message: `Invalid role` });
+        }
 
 
-    const { email, password } = req.body;
-    const user = await User.findOne({ email: email });
+        // Include organization information in the token payload
+        const authToken = jwt.sign(
+            {
+                email: user.email
+                // Add other user-related information if needed
+            },
+            ACCESS_TOKEN_SECRET,
+            { expiresIn: '1h' }
+        );
 
-    const inviteCode = req.params.inviteCode;
-    console.log(inviteCode);
-    console.log(user);
+        const refreshToken = generateRefreshToken();
+        user.refreshToken = refreshToken;
+        await user.save();
 
 
-    if (user.inviteCode !== inviteCode)
-        res.status(401).json({ 'message': 'wrong email or inviteCode' });
-
-
-    const hashedPassword = await bcrypt.hash(password, 10);
-    console.log(hashedPassword);
-
-    await User.updateOne({ _id: user._id }, { $set: { password: hashedPassword, inviteCode: "" } });
-
-    res.status(200).json({ 'message': `User Created` });
+        return res.status(200).json({ token: authToken, refreshToken, user: { email: user.email, organizationId: user.organizationId } });
+    } catch (err) {
+        console.error('Error logging in:', err);
+        res.status(500).json({ message: 'Internal Server Error' });
+    }
 });
 
 
 
+router.post('/checkInviteCode/:inviteCode', async (req, res) => {
 
+    const inviteCode = req.params.inviteCode;
 
-router.post('/login', async (req, res) => {
-
-    const { email, password } = req.body;
-
-    const user = await User.findOne({ email });
-
-    if (user && await bcrypt.compare(password, user.password)) {
-
-        const accessToken = jwt.sign({ email: user.email }, ACCESS_TOKEN_SECRET, { expiresIn: '120s' });
-        res.json({
-            'message': `Successfully loginned`,
-            'accessToken': `${ accessToken }`});
+    if (await User.findOne({ inviteCode: inviteCode })) {
+        return res.status(200).json({ message: 'Invite Code exists' });
     }
     else {
-    res.json({ 'message': 'error' })
+        return res.status(400).json({ message: 'Invite Code Expired or Invalid' });
+    }
 
-}
+});
+
+
+router.post('/signupNewUser/:inviteCode', async (req, res) => {
+
+
+    const { password } = req.body;
+
+    try {
+        const user = await User.findOne({ email: email });
+
+        const inviteCode = req.params.inviteCode;
+        console.log(inviteCode);
+        console.log(user);
+
+
+        if (user.inviteCode !== inviteCode) {
+            res.status(401).json({ 'message': 'wrong email or inviteCode' });
+        }
+
+        const hashedPassword = await bcrypt.hash(password, 10);
+        user.password = hashedPassword;
+        user.inviteCode = "";
+        user.save();
+
+        res.status(200).json({ 'message': `User Created. Go to login` });
+
+    }
+
+
+    catch (err) {
+
+        return res.status(500).json({ 'message': 'Internal server error' });
+
+    }
+
 
 });
 
