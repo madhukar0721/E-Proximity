@@ -8,6 +8,7 @@ const speakeasy = require('speakeasy');
 
 const db = require('./../DB/conn');
 const User = require('../models/userModel');
+const Orgs = require("../models/orgModel")
 const authenticate = require('../middleware/authMiddleware');
 const checkRole = require('../middleware/checkRole');
 
@@ -20,7 +21,7 @@ const generateRefreshToken = () => jwt.sign({}, REFRESH_TOKEN_SECRET, { expiresI
 
 
 router.post('/register', async (req, res) => {
-    const { name, email, password, organizationId } = req.body;
+    const { name, email, password, orgName } = req.body;
 
 
     try {
@@ -34,23 +35,39 @@ router.post('/register', async (req, res) => {
 
         // Create a new user
 
-        const user = {
+        const newUser = new User({
             name: name,
             email: email,
             password: hashedPassword,
-            organizationId: organizationId,
-            role: 'admin'
-        }
+                     role: 'admin'
+        });
+
+        await newUser.save();
+
+        const timestamp = new Date();
+
+        const newOrg = new Orgs({
+            orgName: orgName,
+            createdAt: timestamp,
+        });
+        await newOrg.save();
+
+
+        console.log(newOrg);
+        
+
+        newUser.orgId = newOrg._id;
+        await newUser.save();
+
         // Insert the user into the 'users' collection
-        const newUser = new User(user).save();
 
         return res.status(200).json({
             message: `User signed up, organization created.`,
-            name: name,
+            user: newUser,
             email: email
         });
     } catch (err) {
-        console.error('Error signing up, creating organization, and generating 2FA secret:', err);
+        console.error('Error signing up', err);
         res.status(500).json({ message: 'Internal Server Error' });
     }
 });
@@ -74,7 +91,8 @@ router.post('/login', async (req, res) => {
         // Include organization information in the token payload
         const authToken = jwt.sign(
             {
-                email: user.email
+                email: user.email,
+                orgId: user.orgId,
                 // Add other user-related information if needed
             },
             ACCESS_TOKEN_SECRET,
@@ -94,6 +112,44 @@ router.post('/login', async (req, res) => {
 });
 
 
+router.post('/signupNewUser/:inviteCode', async (req, res) => {
+
+    const inviteCode = req.params.inviteCode;
+    const { password } = req.body;
+  
+  
+    try {
+      const user = await User.findOne({ inviteCode: inviteCode });
+  
+      if (inviteCode !== user.inviteCode) {
+        return res.status(404).json(
+          {
+            message: 'wrong invitation code'
+          }
+        );
+  
+      }
+  
+      // Hash the password
+      const hashedPassword = await bcrypt.hash(password, 10);
+      user.password = hashedPassword;
+      user.inviteCode = "";
+      user.save();
+  
+      res.status(200).json({
+        message: 'User signed up. Go to login',
+        email: user.email,
+        'FAsecret': user.secret
+      });
+    } catch (err) {
+      console.error('Error signing up', err);
+      res.status(500).json({
+        message: 'Internal Server Error',
+        err: err
+      });
+    }
+  });
+  
 
 router.post('/checkInviteCode/:inviteCode', async (req, res) => {
 

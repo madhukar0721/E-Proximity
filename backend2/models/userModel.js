@@ -24,7 +24,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     default: ""
   },
-  organizationId: {
+  orgId: {
     type: String,
     required: false,
   },
