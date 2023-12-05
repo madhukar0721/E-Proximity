@@ -14,9 +14,6 @@ function SidebarDashboard({token,onLogout}){
   const d=new Date();
   const t=d.toLocaleTimeString(navigator.language, {hour: '2-digit', minute:'2-digit'})
 
-// session
-
-
 const [userData, setUserData] = useState(null);
 
 useEffect(() => {
@@ -110,7 +107,8 @@ const handleLogout = () => {
       </div>
     </div>
     ) : (
-      <p>You do not have access to the dashboard.</p>)}
+      <p>You do not have access to the dashboard.</p> 
+      )}
     </div>
   );
 };
