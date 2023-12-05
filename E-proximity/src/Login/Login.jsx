@@ -1,16 +1,27 @@
 import './Login.css'
+import React, { useState } from 'react';
 import aithlogo from '../Images/aithlogo.png';
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import {MDBIcon} from 'mdb-react-ui-kit';
-import { useState } from 'react';
-function Login(props){
-  const[userid,setuserid]=useState("");
-  const[password,setpassword]=useState("");
-  const handleSubmit=(e)=>{
-    e.preventDefault();
-    alert(email+password);
+import axios from 'axios';
+const Login=(props)=>{
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const handleLogin = async () => {
+    try {
+      const response = await axios.post('http://localhost:3000/login', {
+        username,
+        password,
+      });
+
+      const { accessToken } = response.data;
+     props.setToken(accessToken);
+    } catch (error) {
+      console.error('Login failed:', error.message);
+    }
+
   };
-    return<div className='LoginOuter'>
+    return(<div className='LoginOuter'>
       <nav className="logout">
         <a href='/' className='lg text-reset'>
           Go To Dashboard &nbsp;
@@ -20,29 +31,28 @@ function Login(props){
       <div className='container'>
         <img src={aithlogo} alt='logo'/>
         <h4>{props.name} Login</h4>
-        <form onSubmit={(e)=>e.handleSubmit(e)}>
+        <div>
           <div className='InputContainer'>
              <p>User Id</p>
-             <input value={userid}
-             onChange={(e)=>setuserid(e.target.value)}
+             <input value={username} id="username" name="username" autoComplete="username"
+             onChange={(e)=>setUsername(e.target.value)}
              type='text'/>
           </div>
           <div className='InputContainer'>
             <p>Password</p>
-            <input value={password}
-            onChange={(e)=>setpassword(e.target.value)}
+            <input value={password} id="password" name="password" autoComplete="current-password"
+            onChange={(e)=>setPassword(e.target.value)}
             type='password'/>
           </div>
           <div className='Bottomform'>
-            <button type='submit'>Login</button>
+            <button onClick={handleLogin} >Login</button>
             <div className='Links'>
-              <p>New Users?</p>
-              <p>Forgot Password?</p>
+              <p>Forgot password?</p>
             </div>
           </div>
-        </form>
+          </div>
         <small className='copyright'> &copy; 2023 E-Proximity Reserved</small>
         </div>
-      </div>
+      </div>)
 }
 export default Login;

@@ -8,7 +8,10 @@ import {
   CDBSidebarMenuItem,
 } from 'cdbreact';
 import { NavLink } from 'react-router-dom';
+
 import img from '../Images/mam.jpg';
+
+import img1 from '../Images/student.png';
 import './FacultyDashBoard.css';
 function Sidebar(){
   return(
@@ -32,7 +35,7 @@ function Sidebar(){
             <NavLink exact to="/" activeClassName="activeClicked">
               <CDBSidebarMenuItem icon="user">Profile</CDBSidebarMenuItem>
             </NavLink>
-            <NavLink exact to="/" activeClassName="activeClicked">
+            <NavLink exact to="/attendance" activeClassName="activeClicked">
               <CDBSidebarMenuItem icon="table">Attendance</CDBSidebarMenuItem>
             </NavLink>
             <NavLink exact to="/" activeClassName="activeClicked">
@@ -64,7 +67,7 @@ function Sidebar(){
        <div className='menu'>
            <div className='DashBoardprofile'>
              <div className='DashBoardProfileImageOuter'>
-                   <img src={img} className='DashBoardProfileImage'/>
+                   <img src={img1} className='DashBoardProfileImage'/>
              </div>
            </div>
        </div>
