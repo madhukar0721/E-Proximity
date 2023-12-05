@@ -1,0 +1,45 @@
+.Assignment-Container{
+    padding: 80px;
+}
+.Notification-Bar{
+    width: 100%;
+    background-color: whitesmoke;
+    height: 40px;
+    border-radius:0.5rem;
+    color: rgb(112, 109, 109);
+     padding: 0.7rem; 
+    margin-top: 0.7rem; 
+}
+.Submission-Card{
+    background-color: whitesmoke;
+    width: 100%;
+    min-height: 300px;
+    margin-top: 2rem;
+    border-radius: 0.8rem 0.8rem 0 0 ;
+    padding: 2rem;
+}
+.Input-Area{
+    background-color: rgb(174, 174, 174);
+    width: 80%;
+    margin: auto;
+    min-height:200px ;
+    color: white;
+    padding: 1rem;
+    border-radius: 0.7rem;
+}
+.Upload-Card{
+    width: 80%;
+    margin: auto;
+    margin-top: 3rem;
+    border-radius: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+.btn-assign{
+    background-color: #df5454;
+    margin-left: 14rem;
+    width: 15%;
+}
+
+
+

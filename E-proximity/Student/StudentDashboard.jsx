@@ -4,6 +4,7 @@ import Sidebar from './Sidebar';
 import './All.css'
 import './StudentDashboard.css';
 import Sticky from 'react-stickynode';
+import Datepicker from './Datepicker';
 
 function SidebarDashboard(){
   const [openSidebarToggle, setOpenSidebarToggle] = useState(false)
@@ -11,6 +12,7 @@ function SidebarDashboard(){
   setOpenSidebarToggle(!openSidebarToggle)
   }
   return(
+    <>
     <div className='grid-container'>
       <Header OpenSidebar={OpenSidebar}/>
       <Sticky><Sidebar openSidebarToggle={openSidebarToggle} OpenSidebar={OpenSidebar} className="scroll"/></Sticky>
@@ -22,46 +24,56 @@ function SidebarDashboard(){
         <div className='feepayment'>FEE PAYMENT</div>
         <div className='attendence'>ATTENDENCE</div>
       </div>
+      <div className='DatePicker'>
+      <div><Datepicker className="datepicker"/></div>
+      </div>
       <div className='time-table'>
-        <div className='heading'><h6>Time-Table</h6></div>
+        <div className='heading'>
+          <h6>Time-Table</h6>
+        </div>
         <div className='schedule-lecture'><h6>Today's Lectures</h6></div>
-        <div className='lecutre-table'>
-          <table>
-            <tr>
-              <th>Monday</th>
-              <th>November 26,2023</th>
-            </tr>
-            <tr>
-              <td>9:00 AM</td>
-              <td>Computer Architecture</td>
-            </tr>
-            <tr>
-              <td>10:00 AM</td>
-              <td>Applied Mathematics</td>
-            </tr>
-            <tr>
-              <td>11:00 AM</td>
-              <td>Computer Graphics</td>
-            </tr>
-            <tr>
-             <td>12:00 PM</td>
-             <td>Design Analysis and Algorithm</td>
-            </tr>
-            <tr>
-              <td>2:00 PM</td>
-              <td>Machine Learning </td>
-            </tr>
-            <tr>
-              <td>3:00 PM</td>
-              <td>Data Strucutres</td>
-            </tr>
-            
+        <div className='lecture-table'>
+        <table>
+            <thead>
+              <tr>
+                <th scope="col">Monday</th>
+                <th scope="col">04 Dec ,2023</th>
+                <th scope="col">Lecturer</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>10:00 AM</td>
+                <td>DAA</td>
+                <td>Srinath Sir</td>
+              </tr>
+              <tr>
+                <td>10:00 AM</td>
+                <td>DAA</td>
+                <td>Srinath Sir</td>
+              </tr>
+              <tr>
+                <td>10:00 AM</td>
+                <td>DAA</td>
+                <td>Srinath Sir</td>
+              </tr>
+              <tr>
+                 <td>10:00 AM</td>
+                <td>DAA</td>
+                <td>Srinath Sir</td>
+              </tr>
+              <tr>
+                <td>10:00 AM</td>
+                <td>DAA</td>
+                <td>Srinath Sir</td>
+              </tr>
+            </tbody>
         </table>
         </div>
       </div>
       </div>
     </div>
-   
+   </>
   );
 };
 export default SidebarDashboard;

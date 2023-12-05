@@ -3,7 +3,7 @@
     width: 100%;
     margin-top: 4rem;
     padding: 2rem;
-    background:#d9d9d9;
+    /* z-index:-1; */
 }
 .pending-tasks {
     height: 70px;
@@ -16,6 +16,7 @@
 .pending-tasks p{
     color: #df5454;
     padding: 0;
+    font-size: 0.7rem;
 }
 .three-cards {
     display: flex;
@@ -80,38 +81,38 @@
     padding: 1rem;
 }
 
-.lecutre-table {
+.lecture-table {
     
     width: 90%;
     margin: auto;
-    margin-top: 3rem; /* Adjust spacing from the schedule-lecture section */
+    margin-top: 1rem;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    overflow-x: auto; /* Allow horizontal scrolling on smaller screens */
+    overflow-x: auto; 
 }
 
-.lecutre-table table {
+.lecture-table table {
     width: 100%;
-    text-align: center;
-}
-
-.lecutre-table table th {
-    width: 50%;
-    height: 40px;
-}
-
-tr {
-    border: 1px solid rgb(231, 227, 227);
-    color: rgb(78, 77, 77);
-    font-size: 0.9rem;
-    row-gap: 2rem;
-}
-td,th{
-    padding:0.3rem;
-}
-th{
-    color: rgb(66, 65, 65);
-    font-size: 1rem;
-}
+    border-collapse: collapse;
+  }
+  
+  thead th:nth-child(1) {
+    width: 43%;
+  } 
+  thead th:nth-child(2) {
+    width: 40%;
+  }
+  
+  thead th:nth-child(3) {
+    width: 33%;
+  } 
+  th,
+  td {
+    padding: 10px;
+    
+  }
+ tr{
+    border: 1px solid rgb(201, 200, 200);
+ }
 
 /* Larger screens */
 

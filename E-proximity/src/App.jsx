@@ -13,6 +13,7 @@ import Login from './Login/Login';
 import Faculty from './Faculty/FacultyDashBoard';
 import Student from '/Student/StudentDashboard';
 import FeeDetail from '/Student/FeeDetails';
+import Assignment from '/Student/Assignment';
 import Logout from '../src/Login/Login';
 function App() {
   const [count, setCount] = useState(0)
@@ -33,6 +34,7 @@ function App() {
        <Route exact path='/faculty' element={<><Faculty/></>}/>
        <Route exact path="/studentdash" element={<><Student/></>}/>
        <Route exact path='/feedetails' element={<><FeeDetail/></>}/>
+       <Route exact path='/assignment' element={<><Assignment/></>}/>
        <Route exact path='/logout' element={<><Logout/></>}/>
       </Routes>
     </BrowserRouter></>

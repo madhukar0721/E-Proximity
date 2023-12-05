@@ -1,7 +1,7 @@
 import React from 'react'
 import './All.css'
 import 
-{ BsGrid1X2Fill,BsFillGrid3X3GapFill,
+{ BsGrid1X2Fill,
   BsListCheck}
  from 'react-icons/bs'
 import { PiStudentFill } from "react-icons/pi";
@@ -31,17 +31,12 @@ function Sidebar({openSidebarToggle, OpenSidebar}) {
                 </a>
             </li>
             <li className='sidebar-list-item'>
-                <a href="">
-                    <BsFillGrid3X3GapFill className='icon'/> Time-Table
-                </a>
-            </li>
-            <li className='sidebar-list-item'>
                 <a href="/feedetails">
                     <MdOutlineRequestPage className='icon'/> Fee Details
                 </a>
             </li>
             <li className='sidebar-list-item'>
-                <a href="">
+                <a href="/assignment">
                     <BsListCheck className='icon'/> Assignment
                 </a>
             </li>

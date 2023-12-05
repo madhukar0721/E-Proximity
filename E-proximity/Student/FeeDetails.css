@@ -1,12 +1,55 @@
 .feild-wrapper{
-    padding: 5rem;
-    z-index: 1;
+    padding: 6rem;
+    z-index: -1;
 }
-.Dropdown-box{
-    width: 70%;
-    text-align: start;
-    position:fixed;
-}
-.Dropdown-box:hover{
+.DropDown{
+    width: 100%;
     background-color: whitesmoke;
+    border-radius: 0.5rem;
+    display: flex;
+    height: 40px;
+    font-size: 0.9rem;
+    padding: 0.5rem;
+}
+.Fee-Selection{
+    margin-top: 2rem;
+}
+.Invoice{
+    min-height: 200px;
+    background-color: white;
+    margin-top: 1rem;
+    border-radius: 0.8rem;
+}
+.Due{
+    width: 100%;
+    background-color: whitesmoke;
+    margin: auto;
+    height: 40px;
+    border-radius: 0.8rem  0.8rem 0  0;
+    border-bottom: 1px solid gainsboro;
+}
+.Due h6{
+    padding: 0.7rem;
+}
+.Invoice-Table{
+    width: 90%;
+    align-items: center;
+    margin: auto;
+    margin-top: 2rem;
+}
+tbody,thead{
+    font-size: 0.85rem;
+}
+.submit{
+    display: flex;
+    justify-content: end;
+}
+.Submit-btn{
+    background-color:#df5454;
+}
+@media (min-width:750) {
+    .feild-wrapper{
+        padding: 3rem;
+        z-index: -1;
+    }
 }
