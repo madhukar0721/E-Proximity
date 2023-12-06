@@ -1,0 +1,68 @@
+.PhotoSectionOuter{
+    min-height:200px;
+    width:100%;
+    padding:5rem;
+    color:grey;
+}
+@media (min-width:1000px) {
+    .PhotoSectionOuter{
+        margin-top:3.6rem;
+    }
+}
+.photoSection{
+    display:flex;
+    margin-top:7rem;
+}
+.photoSection div{
+    margin-left:2rem;
+}
+
+.StudentImg{
+    height:auto;
+    width:100%;
+    max-width:100px;
+    z-index:-1;
+}
+.InformationSectionOuter{
+    min-height:600px;
+    background:whitesmoke;
+    width:90%;
+    margin:auto;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 9px;
+}
+.InformationSectionOuter .information{
+    min-height:200px;
+    width:95%;
+    margin:auto;
+    margin-bottom:2rem;
+    border-bottom:5px solid grey;
+    /* border-right: 5px solid grey; */
+    box-shadow:rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 9px;
+    background: white;
+}
+@media (min-width:1000px) {
+    .InformationSectionOuter div{
+        width:80%;
+    }
+}
+.InformationSectionOuter .InformationSectionOuterHeader{
+    height:50px;
+    width:100%;
+    background:#492ba0;
+    margin-bottom:3rem;
+    border-radius: 9px 9px 0px 0px;
+}
+.information{
+    padding:.5rem;
+    width:100%;
+}
+.information h6{
+    color:grey;
+}
+.table{
+    width:100%;
+    margin:auto;
+}

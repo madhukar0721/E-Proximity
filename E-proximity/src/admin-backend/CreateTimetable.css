@@ -1,0 +1,87 @@
+.CreateTimeTableContainer{
+    padding: 5rem;
+}
+h2{
+    color: grey;
+}
+.MakeChangestimetable{
+    width: 100%;
+    min-height:50px;
+    background-color: #df5454;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 0.1rem;
+    font-size: 0.9rem;
+    margin-top: 2rem;
+    border-radius: 0.4rem;
+    color: white;
+}
+.CreateTimeTableBox{
+    background-color: rgb(250, 250, 250);
+    margin-top: 2rem;
+    border-radius:9px;
+}
+.CreateTimeTableBox label{
+    padding: 0.9rem;
+}
+.addentrybutton{
+    margin:1rem 0rem 1rem 0rem;
+}
+.ExistingTimeTable{
+    background-color: whitesmoke;
+    min-height: 260px;
+    width: 100%;
+    border-radius: 1rem;
+    margin-top: 3rem;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.heading{
+    background-color: white;
+    height: 40px;
+    border-radius: 0.5rem 0.5rem 0 0 ;
+    padding: 0.7rem;
+    color: grey;
+    border-bottom: 1px solid rgb(225, 224, 224);
+}
+.ExistingTimeTableItems{
+    background-color: rgb(206, 203, 203);
+    min-height: 160px;
+    width: 95%;
+    border-radius: 0.4rem;
+    margin: auto;
+    margin-top: 2rem;
+}
+.button-div{
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+}
+button{
+    width: 17%;
+    height: 40px;
+}
+@media (max-width:900px) {
+    button{
+        width: 25%;
+        height: 40px;
+        font-size: 0.6rem;
+    }
+}
+@media (max-width:450px) {
+    
+    .CreateTimeTableContainer{
+        padding: 4.7rem;
+    }
+    button{
+        width: 35%;
+        height: 40px;
+        font-size: 0.6rem;
+    }
+    .button-div{
+        display: flex;
+        justify-content: space-between;
+       
+    }
+    .MakeChangestimetable{
+        font-size: 0.8rem;
+    }
+}

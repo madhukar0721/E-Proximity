@@ -26,7 +26,7 @@ function Sidebar({openSidebarToggle, OpenSidebar}) {
                 </a>
             </li>
             <li className='sidebar-list-item'>
-                <a href="">
+                <a href="/studentprofile">
                     <PiStudentFill className='icon'/> Profile
                 </a>
             </li>

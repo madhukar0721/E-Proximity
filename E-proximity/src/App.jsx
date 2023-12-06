@@ -15,6 +15,9 @@ import Faculty from './Faculty/FacultyDashBoard';
 // import Student from '../src/Student/StudentDashboard';
 import Assignment from './Student/Assignment';
 import Logout from '../src/Login/Login';
+import StudentProfile from './Student/StudentProfile';
+import CreateTimeTable1 from './admin-backend/CreateTimeTable1';
+import ViewTimeTable from './admin-backend/ViewTimetable';
 function App() {
   const [count, setCount] = useState(0)
   const [token, setToken] = useState(null);
@@ -57,6 +60,9 @@ function App() {
        <Route exact path='/feedetails' element={<><FeeDetail/></>}/>
        <Route exact path='/assignment' element={<><Assignment/></>}/>
        <Route exact path='/logout' element={<><Logout/></>}/>
+       <Route exact path='/studentprofile' element={<><StudentProfile/></>}/>
+       <Route exact path='/createtimetable' element={<><CreateTimeTable1/></>}/>
+       <Route exact path='/viewtimetable' element={<><ViewTimeTable/></>}/>
       </Routes>
     </BrowserRouter></>
   );
