@@ -1,0 +1,16 @@
+
+.UpperPartAdmin{
+    padding:9rem 2rem 2rem 5rem;
+}
+.CradSection{
+    margin-top:5rem;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.card{
+    transition: all ease-in-out .2s;
+}
+.card:hover{
+    transform: scale(1.1);
+}

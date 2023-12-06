@@ -18,6 +18,8 @@ import Logout from '../src/Login/Login';
 import StudentProfile from './Student/StudentProfile';
 import CreateTimeTable1 from './admin-backend/CreateTimeTable1';
 import ViewTimeTable from './admin-backend/ViewTimetable';
+import Admindashboard from './admin-backend/AdminDashBoard';
+import CreateTimetable from './admin-backend/CreateTimeTable1';
 function App() {
   const [count, setCount] = useState(0)
   const [token, setToken] = useState(null);
@@ -63,6 +65,8 @@ function App() {
        <Route exact path='/studentprofile' element={<><StudentProfile/></>}/>
        <Route exact path='/createtimetable' element={<><CreateTimeTable1/></>}/>
        <Route exact path='/viewtimetable' element={<><ViewTimeTable/></>}/>
+       <Route exact path='/admindashboard' element={<><Admindashboard/></>}/>
+       <Route exact path='/createtimetable' element={<><CreateTimetable/></>}/>
       </Routes>
     </BrowserRouter></>
   );
