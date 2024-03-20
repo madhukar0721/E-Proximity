@@ -1,5 +1,5 @@
 import registermodel from "../models/registermodel.js";
-import Jwt  from "jsonwebtoken";
+import Jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 const loginuser=async(req,res)=>{
     const {username,password}=req.body;
